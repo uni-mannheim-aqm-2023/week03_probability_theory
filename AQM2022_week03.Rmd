@@ -2,16 +2,16 @@
 title: "AQM Week 03 -- OLS II: Robust Standard errors & Probability Theory"
 author: 
   - "Oliver Rittmann"
-  - "Viktoriia Semenova"
-date: "March 3, 2022"
+  - "Domantas Undzėnas"
+date: "March 1, 2023"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     toc: true
     toc_float: true
     css: css/lab.css
     code_folding: show
+  pdf_document:
+    toc: yes
   html_notebook:
     toc: true
     toc_float: true
@@ -109,7 +109,7 @@ E[\hat{\beta}_{OLS}|X]  & = E[(X'X)^{-1}X'y|X]                     & \text{(2) $
 \end{aligned}
 $$
 
-Last week we talked about violations of the multicollinearity (2) and uncorrelated errors (4) assumption.
+Last week we talked about violations of the multicollinearity (2), zero conditional mean (3) and uncorrelated errors (4) assumption.
 
 Today we will have a look at one solution to situations when the homoskedasticity assumption (also covered by assumption 4) is violated. Note that this is not the only solution approach and we will cover other approaches later in the semester.
 
@@ -117,7 +117,7 @@ Assumption 4 does not appear in the derivation of the unbiasedness of $\hat\beta
 
 The homoscedasticity assumption is necessary for the Gauss-Markov Theorem to hold. It ensures that the OLS estimator is the BLUE. Unfortunately, the assumption is quite strong and rarely fulfilled. Let's explore what happens if the assumption of Homoskedasticity fails to hold.
 
-```{r Heteroscedasticity, fig.keep='last'}
+```{r Heteroscedasticity}
 set.seed(20200227) # What is this?
 
 n <- 500
@@ -178,7 +178,7 @@ The second plot shows that the assumption that $Var(\epsilon | X) = E[\epsilon \
 
 The picture above is the textbook example of heteroskedasticity. Here is a second set of data where heteroskedasticity is apparent too. This time, the independent variable *X* is just a binary indicator. This example will give us an easier time understanding why heteroskedasticity may be a problem.
 
-```{r}
+```{r binary heteroscedasticity}
 set.seed(030322)
 n <- 1000
 pop <- data.frame("x" = rbinom(n, 1, 0.35))
