@@ -3,7 +3,7 @@ title: "AQM Week 03 -- OLS II: Robust Standard errors & Probability Theory"
 author: 
   - "Oliver Rittmann"
   - "Domantas Undzėnas"
-date: "March 1, 2023"
+date: "March 2, 2023"
 output:
   html_document:
     toc: true
